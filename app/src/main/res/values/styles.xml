@@ -2,7 +2,7 @@
 <resources>
     <style name="TodoListItem">
         <item name="android:fontFamily">@font/nunito_regular</item>
-        <item name="android:textSize">40sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="color">@color/whiteText</item>
     </style>
 </resources>
