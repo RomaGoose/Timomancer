@@ -49,26 +49,6 @@
                 android:layout_margin="15dp"
                 android:orientation="vertical">
 
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Wash the dishes" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Trim ur nails" />-->
-
                 <TextView
                     style="@style/TodoListItem"
                     android:layout_width="match_parent"
@@ -78,94 +58,6 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:text="Suck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cockSuck some cock" />
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Wash the dishes" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Trim ur nails" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Suck some cock" />-->
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Wash the dishes" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Trim ur nails" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Suck some cock" />-->
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Wash the dishes" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Trim ur nails" />-->
-
-<!--                <TextView-->
-<!--                    style="@style/TodoListItem"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="15dp"-->
-<!--                    android:background="@drawable/shape_round_corners"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:paddingStart="20dp"-->
-<!--                    android:text="Suck some cock" />-->
 
 
             </LinearLayout>
