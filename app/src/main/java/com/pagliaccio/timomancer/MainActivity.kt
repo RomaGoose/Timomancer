@@ -22,6 +22,9 @@ import androidx.core.view.setPadding
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.launch
 
 data class Task(
@@ -36,101 +39,72 @@ val Int.dp: Int
 val Context.dataStore by preferencesDataStore("tasks")
 
 class MainActivity : AppCompatActivity() {
-    val TASKS_KEY = stringPreferencesKey("tasks_list")
+
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
+    private val tabTitles = mutableListOf("All", "Personal", "Work", "School")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-//        loadTasks()
-        initDataStoreListener()
+
+        viewPager = findViewById(R.id.viewPager)
+        tabLayout = findViewById(R.id.tabLayout)
+
+        // Create adapter with the list
+        val adapter = ViewPagerAdapter(this, tabTitles)
+        viewPager.adapter = adapter
+
+        // Connect tabs
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
+
         val addButton = findViewById<ImageButton>(R.id.addButton)
+        val clearButton = findViewById<ImageButton>(R.id.clearButton)
 
-        addButton.setOnClickListener {
-            val editText = EditText(this)
+//        addButton.setOnClickListener {
+//            val editText = EditText(this)
+//
+//            AlertDialog.Builder(this)
+//                .setTitle("Add Task")
+//                .setMessage("Enter task name:")
+//                .setView(editText)
+//                .setPositiveButton("Add") { dialog, which ->
+//                    var task = Task(title = editText.text.toString())
+//
+//                    lifecycleScope.launch {
+//                        dataStore.edit { preferences ->
+//                            val jsonString = preferences[TASKS_KEY] ?: "[]"
+//                            val existingList: MutableList<Task> = Gson().fromJson(
+//                                jsonString,
+//                                object : TypeToken<MutableList<Task>>() {}.type
+//                            ) ?: mutableListOf()
+//
+//                            existingList.add(task)
+//
+//                            preferences[TASKS_KEY] = Gson().toJson(existingList)
+//                        }
+//                    }
+////                    loadTasks()
+//                }
+//                .setNegativeButton("Cancel", null)
+//                .show()
+//        }
 
-            AlertDialog.Builder(this)
-                .setTitle("Add Task")
-                .setMessage("Enter task name:")
-                .setView(editText)
-                .setPositiveButton("Add") { dialog, which ->
-                    var task = Task(title = editText.text.toString())
-
-                    lifecycleScope.launch {
-                        dataStore.edit { preferences ->
-                            val jsonString = preferences[TASKS_KEY] ?: "[]"
-                            val existingList: MutableList<Task> = Gson().fromJson(
-                                jsonString,
-                                object : TypeToken<MutableList<Task>>() {}.type
-                            ) ?: mutableListOf()
-
-                            existingList.add(task)
-
-                            preferences[TASKS_KEY] = Gson().toJson(existingList)
-                        }
-                    }
-//                    loadTasks()
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
-        }
+//        clearButton.setOnClickListener {
+//            lifecycleScope.launch {
+//                dataStore.edit { preferences ->
+//                    preferences.remove(TASKS_KEY)
+//                }
+//            }
+//        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
-    }
-
-    private fun addTaskTV(task: Task) {
-        val task_tv = TextView(this)
-        task_tv.text = task.title
-        task_tv.id = task.id
-        task_tv.setPadding(15.dp)
-        task_tv.setTextAppearance(R.style.TodoListItem)
-        val params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-
-        params.bottomMargin = 15.dp
-        task_tv.background = AppCompatResources.getDrawable(this,R.drawable.shape_round_corners)
-        task_tv.layoutParams = params
-
-        findViewById<LinearLayout>(R.id.taskLinearLayout).addView(task_tv)
-    }
-
-//    private fun loadTasks(){
-//        findViewById<LinearLayout>(R.id.taskLinearLayout).removeAllViews()
-//
-//        lifecycleScope.launch {
-//            dataStore.data.collect { preferences ->
-//                val jsonString = preferences[TASKS_KEY] ?: "[]"
-//                val taskList: List<Task> = Gson().fromJson(
-//                    jsonString,
-//                    object : TypeToken<List<Task>>() {}.type
-//                )
-//
-//                taskList.forEach { task ->
-//                    addTaskTV(task)
-//                }
-//            }
-//        }
-//    }
-
-    fun initDataStoreListener() {
-        lifecycleScope.launch {
-            dataStore.data.collect { preferences ->
-                findViewById<LinearLayout>(R.id.taskLinearLayout).removeAllViews()
-                val jsonString = preferences[TASKS_KEY] ?: "[]"
-                val taskList: List<Task> = Gson().fromJson(
-                    jsonString,
-                    object : TypeToken<List<Task>>() {}.type
-                )
-                taskList.forEach { task ->
-                    addTaskTV(task)
-                }
-            }
         }
     }
 }
